@@ -1,0 +1,17 @@
+{
+  "navbar": {
+    "home": "الرئيسية",
+    "products": "المنتجات",
+    "categories": "الأقسام",
+    "brands": "العلامات التجارية",
+    "signout": "تسجيل الخروج",
+    "lang": "اللغة"
+  },
+  "home": {
+    "categories": "الأقسام",
+    "popular_products": "المنتجات الشائعة",
+    "search_placeholder": "ابحث بالاسم...",
+    "add_to_cart": "أضف إلى السلة",
+    "no_products": "لم يتم العثور على منتجات لهذه الفئة."
+  }
+}

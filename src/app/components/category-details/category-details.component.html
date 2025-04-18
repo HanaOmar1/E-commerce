@@ -1,0 +1,55 @@
+<div class="container mt-5">
+  <!-- CATEGORY DETAILS -->
+
+
+  <!-- PRODUCTS LIST -->
+  <div class="row mt-4">
+    <h3 class="mb-3 text-secondary">Products in {{ category.name }}</h3>
+
+    @if (filteredProducts.length > 0) {
+      @for (product of filteredProducts; track product._id) {
+        <div class="col-md-2">
+          <div class="p-1 product">
+            <div  [routerLink]="['/details',product.id]">
+              <img [src]="product.imageCover" [alt]="product.title" class="w-100" />
+            <h3 class="small text-main">{{ product.category.name }}</h3>
+            <h4 class="h6">{{ product.title|termtext:2 }}</h4>
+            <div class="d-flex justify-content-between align-items-center">
+              <span>{{ product.price | currency:'GBP' }}</span>
+              <div>
+                <!-- @for (num of [1,2,3,4,5].slice(0,product.ratingsAverage); track $index) {
+
+                  } -->
+                <span><i class="fas fa-star rating-color"></i></span>
+                <!-- @if(product.ratingsAverage %1!==0)
+                  {
+                    <i class="fa-solid fa-star-half-stroke rating-color"></i>
+                  } -->
+                <span class="text-muted">{{ product.ratingsAverage }}</span>
+              </div>
+            </div>
+            </div>
+            <button class="btn-main w-100" (click)="addToCart(product.id)">Add To Cart</button>
+          </div>
+        </div>
+      }
+    } @else {
+      <p class="text-muted">No products found for this category.</p>
+    }
+
+
+
+  <!-- No Products Found Template -->
+  @if (false) {
+    <ng-template #noProductsTemplate>
+      <p class="text-muted">No products found for this category.</p>
+    </ng-template>
+  }
+
+  <!-- Loading Template -->
+  @if (false) {
+    <ng-template #loadingTemplate>
+      <p class="text-muted">Loading category details...</p>
+    </ng-template>
+  }
+</div>

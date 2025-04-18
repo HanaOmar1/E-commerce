@@ -1,0 +1,52 @@
+<!-- ashan html kan byetla3 abl el data-->
+@if(specificProduct)
+{
+  <section>
+   
+    <div class="row align-items-center my-3">
+      <div class="col-md-3">
+        <div>
+          <!--slider y loop 3ala imgs-->
+          <!-- <img [src]='specificProduct.imageCover' [alt]='specificProduct.title' srcset="" class="w-100"> -->
+          <owl-carousel-o [options]="customOptionsSpecific">
+            @for (img of specificProduct.images; track $index) {
+              <ng-template carouselSlide>
+                <div>
+                  <img [src]="img" height="250px" [alt]="specificProduct.title" class="w-100" height="380px"/>
+                </div>
+              </ng-template>
+            }
+          </owl-carousel-o>
+
+
+        </div>
+
+      </div>
+      <div class="col-md-9">
+        <div>
+          <h2>{{specificProduct.title}}</h2>
+          <p class="text-muted">{{specificProduct.description}}</p>
+          <h3 class="small text-main">{{ specificProduct.category.name}}</h3>
+          <div class="d-flex justify-content-between align-items-center my-2">
+            <span>{{ specificProduct.price |currency:'GBP'}}</span>
+            <div>
+              @for (num of [1,2,3,4,5].slice(0,specificProduct.ratingsAverage); track specificProduct._id) {
+                <span><i class="fas fa-star rating-color"></i></span>
+                }
+              @if(specificProduct.ratingsAverage %1!==0)
+                {
+                  <i class="fa-solid fa-star-half-stroke rating-color"></i>
+                }
+              <span class="text-muted">{{specificProduct.ratingsAverage }}</span>
+            </div>
+          </div>
+          <button class="btn-main w-100" (click)="addToCart(specificProduct._id)">+ Add To Cart</button>
+        </div>
+
+
+
+      </div>
+    </div>
+  </section>
+}
+

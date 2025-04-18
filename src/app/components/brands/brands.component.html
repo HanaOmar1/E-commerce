@@ -1,0 +1,23 @@
+<section class="container my-4">
+  <h2 class="text-center mb-4">Brands</h2>
+  <div class="d-flex justify-content-center">
+    <div class="row justify-content-center gap-3">
+      @for (brand of brandsList; track brand._id) {
+        <div class="brand col-sm-7 col-md-4 col-lg-3 col-xl-2 border shadow-sm text-center">
+          <a [routerLink]="['/brands', brand._id]">
+            <div class="text-center">
+              <img class="w-100 p-4" [src]="brand.image" alt="">
+              <p class="text-main fw-bold">{{ brand.name }}</p>
+            </div>
+          </a>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+@if(isLoading)
+{
+  <app-loading></app-loading>
+}
+
+

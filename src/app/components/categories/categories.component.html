@@ -1,0 +1,20 @@
+<section class="container my-4">
+  <h2 class="text-center mb-4">Categories</h2>
+  <div class="row g-4">
+    @for (category of categoriesList; track category._id)
+    {
+      <div class="col-6 col-sm-4 col-md-4 mt-2 ">
+        <a [routerLink]="['/categories', category._id]">
+            <div class="p-3 product">
+                <img height="400px" class="w-100 rounded object-fit-cover" [src]="category.image" alt="">
+                <p class="text-center fw-bold mt-2">{{category.name}}</p>
+            </div>
+        </a>
+    </div>
+    }
+
+</div>
+
+  
+</section>
+

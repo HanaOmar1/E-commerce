@@ -1,0 +1,42 @@
+<section class="bg-main-light shadow p-2 my-2 rounded-4 w-75 mx-auto">
+  <h2 class="bold">Previous Orders:</h2>
+  <div class="order-card mb-3 p-3 bg-white rounded-3 shadow-sm">
+    @for (order of userOrders; track order.id) {
+    <div class="row">
+      <div class="">
+        <div>
+          <h4 class="text-main">Order ID: {{ order.id }}</h4>
+          <p>
+            <strong>Order Date:</strong> {{ order.createdAt | date : "medium" }}
+          </p>
+          <p><strong>Total Price:</strong> ${{ order.totalOrderPrice }}</p>
+          <p><strong>Payment Method:</strong> {{ order.paymentMethodType }}</p>
+        </div>
+
+        <h5>Purchased Items:</h5>
+        <div class="row">
+            @for (item of order.cartItems; track item.product.id) {
+            <div class="product-item col-md-4 mb-2 p-2 bg-light rounded-2">
+              <div class="row">
+                <div class="col-md-3">
+                  <img
+                    [src]="item.product.imageCover"
+                    alt="{{ item.product.title }}"
+                    class="img-fluid rounded-2 w-100"
+                  />
+                </div>
+                <div class="col-md-9">
+                  <h6>{{ item.product.title }}</h6>
+                  <p><strong>Quantity:</strong> {{ item.count }}</p>
+                  <p><strong>Price:</strong> ${{ item.price }}</p>
+                </div>
+              </div>
+            </div>
+            }
+        </div>
+        <hr />
+      </div>
+    </div>
+    }
+  </div>
+</section>

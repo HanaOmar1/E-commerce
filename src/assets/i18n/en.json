@@ -1,0 +1,17 @@
+{
+  "navbar": {
+    "home": "Home",
+    "products": "Products",
+    "categories": "Categories",
+    "brands": "Brands",
+    "signout": "Sign Out",
+    "lang": "Lang"
+  },
+  "home": {
+    "categories": "Categories",
+    "popular_products": "Popular Products",
+    "search_placeholder": "Search by Name...",
+    "add_to_cart": "Add To Cart",
+    "no_products": "No products found for this category."
+  }
+}
